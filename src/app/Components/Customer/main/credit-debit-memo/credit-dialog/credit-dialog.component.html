@@ -1,0 +1,97 @@
+
+<div class="d-flex justify-content-between">
+  <h1 class="text">CREDIT MEMO DETAIL (FINANCE SHEET)</h1>
+  <i class="fas fa-times dialog-close" (click)="onClose()"></i>
+</div>
+<div class="d-flex flex-column dialog-scroll">
+  <div class="d-flex">
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">DOC_NO</span>
+      <span class="dialog-span-content">{{ dialog_Arr.DOC_NO["_text"] }}</span>
+    </div>
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">DB_CR_IND</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.DB_CR_IND["_text"]
+      }}</span>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">AMOUNT</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.AMOUNT["_text"]
+      }}</span>
+    </div>
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">AMT_DOCCUR</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.AMT_DOCCUR["_text"]
+      }}</span>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">BILL_DOC</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.BILL_DOC["_text"]
+      }}</span>
+    </div>
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">BLINE_DATE</span>
+      <span class="dialog-span-content">{{ dialog_Arr.BLINE_DATE["_text"] }}</span>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">COMP_CODE</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.COMP_CODE["_text"]
+      }}</span>
+    </div>
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">CURRENCY</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.CURRENCY["_text"]
+      }}</span>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">CUSTOMER</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.CUSTOMER["_text"]
+      }}</span>
+    </div>
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">DISC_BASE</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.DISC_BASE["_text"]
+      }}</span>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">LC_AMOUNT</span>
+      <span class="dialog-span-content">{{ dialog_Arr.LC_AMOUNT["_text"] }}</span>
+    </div>
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">TAX_CODE</span>
+      <span class="dialog-span-content">{{ dialog_Arr.TAX_CODE["_text"] }}</span>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">REF_DOC_NO_LONG</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.REF_DOC_NO_LONG["_text"]
+      }}</span>
+    </div>
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">REF_DOC_NO</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.REF_DOC_NO["_text"]
+      }}</span>
+    </div>
+  </div>
+</div>

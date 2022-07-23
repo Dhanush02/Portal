@@ -1,0 +1,109 @@
+<app-loader [loader]="loader"></app-loader>
+<div class="container-fluid p-0 mt-3 w-100">
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="input-field">
+      <i class="fas fa-search"></i>
+      <input
+        type="text"
+        (keyup)="applyFilter($event)"
+        placeholder="Search"
+        #input
+      />
+    </div>
+    <button class="btn-hover btn-override color-11" (click)="openPDF()">
+      Download PDF
+    </button>
+  </div>
+</div>
+
+<div>
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    id="htmlData"
+    class="mat-tab table-striped mat-elevation-z8"
+  >
+    <ng-container matColumnDef="DOC_NO">
+      <th
+        title="ID"
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        class="table-row"
+      >
+      DOC_NO
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let row"
+        data-label="salesDoc"
+        class="p-3 cell-pointer"
+        (click)="onRow(row.DOC_NO)"
+        data-toggle="modal"
+        data-target="#exampleModalCenter"
+      >
+        {{ row.DOC_NO }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ALLOC_NMBR">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
+        ALLOC_NMBR
+      </th>
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="description">
+        {{ row.ALLOC_NMBR }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="AMOUNT">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
+        AMOUNT
+      </th>
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="date">
+        {{ row.AMOUNT }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="AMT_DOCCUR">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
+        AMT_DOCCUR
+      </th>
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="soldTo">
+        {{ row.AMT_DOCCUR }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="BLINE_DATE">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
+        BLINE_DATE
+      </th>
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="category">
+        {{ row.BLINE_DATE }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ENTRY_DATE">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
+        ENTRY_DATE
+      </th>
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="name">
+        {{ row.ENTRY_DATE}}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">
+        No data matching the filter "{{ input.value }}"
+      </td>
+    </tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10]"
+    aria-label="Select page of users"
+  ></mat-paginator>
+</div>

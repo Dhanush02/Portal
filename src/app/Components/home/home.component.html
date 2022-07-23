@@ -1,0 +1,402 @@
+<div class="container-fluid p-0">
+  <div id="Scrollspy" data-spy="scroll" data-target=".navbar" data-offset="50">
+    <!-- (scroll)="scrollHandler($event)" -->
+    <nav
+      class="navbar navbar-expand-sm fixed-top d-flex justify-content-between"
+    >
+      <div class="nav-header">
+        <img
+          class="img-fluid"
+          src="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg/sap-logo-svg.svg"
+        />
+      </div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link style-nav-link" (click)="goDown1()">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link style-nav-link" (click)="goDown2()">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link style-nav-link" (click)="goDown3()">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link style-nav-link" (click)="goDown4()">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="section1" class="sec-1" style="padding-top: 90px">
+      <div class="d-flex">
+        <div
+          style="height: 90vh"
+          class="col-md-12 d-flex flex-column align-items-center justify-content-center"
+        >
+          <h1 class="banner-text">Time To Shape Your Ideas</h1>
+          <p class="banner-para">
+            Join us to enhance, redefine, and to reach the next level of your
+            business world
+          </p>
+          <button class="btn-hover color-11" (click)="goDown2()">
+            EXPLORE
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="section2" class="sec-2" style="padding-top: 100px">
+      <div
+        class="container h-100 d-flex flex-column align-items-center justify-content-center"
+      >
+        <div class="site-heading text-center">
+          <h2><span>ABOUT US</span></h2>
+          <h4 style="text-transform: unset">Unlock the Power of SAP</h4>
+        </div>
+        <div
+          class="row about-us-text mx-auto mt-5"
+          style="background: white; padding: 2%"
+        >
+          <div
+            class="col-md-6 d-flex align-items-center justify-content-center"
+          >
+            <img
+              src="../../../assets//Images/Kaar-Logo- (1).png"
+              height="200px"
+              width="200px"
+              alt="About Us"
+              class="about-us-img img-fluid"
+              title="About Us"
+            />
+          </div>
+          <div
+            class="col-md-6 d-flex align-items-center justify-content-center"
+          >
+            <h4 style="line-height: 2; font-size: 20px">
+              Kaar Tech is the World’s Best Pure-Play SAP Digital Transformation
+              Consulting and Partner driven by 1000+ Specialized SAP Consultants
+              and 5000+ Man-Years of SAP Expertise gained through 2000+ projects
+              for 350+ customers across the globe. With the help of people,
+              process, tools, and over 16 Years of assimilated SAP Expertise.
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="section3" class="sec-3" style="padding-top: 100px">
+      <div
+        class="container h-100 d-flex flex-column align-items-center justify-content-center"
+      >
+        <div class="site-heading text-center">
+          <h2><span>SERVICES</span></h2>
+          <h4 style="text-transform: unset">
+            SAP Digital Transformation Consulting and Services
+          </h4>
+        </div>
+        <ul class="nav nav-pills mt-4" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link services-link active"
+              id="pills-home-tab"
+              data-toggle="pill"
+              href="#pills-home"
+              role="tab"
+              aria-controls="pills-home"
+              aria-selected="true"
+              >Customer Portal</a
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link services-link"
+              id="pills-profile-tab"
+              data-toggle="pill"
+              href="#pills-profile"
+              role="tab"
+              aria-controls="pills-profile"
+              aria-selected="false"
+              >Vendor Portal</a
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <a
+              class="nav-link services-link"
+              id="pills-contact-tab"
+              data-toggle="pill"
+              href="#pills-contact"
+              role="tab"
+              aria-controls="pills-contact"
+              aria-selected="false"
+              >Employee Portal</a
+            >
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="pills-home"
+            role="tabpanel"
+            aria-labelledby="pills-home-tab"
+          >
+            <div
+              class="row about-us-text mx-auto mt-5"
+              style="background: white; padding: 2%"
+            >
+              <div
+                class="col-md-6 d-flex align-items-center justify-content-center"
+              >
+                <img
+                  src="../../../assets/Images/customer.svg"
+                  alt="About Us"
+                  class="img-fluid tab-img"
+                  title="About Us"
+                />
+              </div>
+              <div
+                class="col-md-6 d-flex flex-column align-items-center justify-content-center"
+              >
+                <h4 style="line-height: 2; font-size: 18px">
+                  Customer Portal for SAP Business One empowers customers with a
+                  secure, flexible, and personalized self-service gateway. A
+                  standard web browser is all that’s needed for your customers
+                  to easily retrieve and interact with their account
+                  information.
+                </h4>
+                <button
+                  class="btn-hover btn-override color-11"
+                  (click)="onCustomerLogin()"
+                >
+                  EXPLORE CUSTOMER PORTAL
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="pills-profile"
+            role="tabpanel"
+            aria-labelledby="pills-profile-tab"
+          >
+            <div
+              class="row about-us-text mx-auto mt-5"
+              style="background: white; padding: 2%"
+            >
+              <div
+                class="col-md-6 d-flex align-items-center justify-content-center"
+              >
+                <img
+                  src="../../../assets/Images/vendor.svg"
+                  alt="Vendor"
+                  class="img-fluid tab-img"
+                  title="Vendor"
+                />
+              </div>
+              <div
+                class="col-md-6 d-flex flex-column align-items-center justify-content-center"
+              >
+                <h4 style="line-height: 2; font-size: 18px">
+                  A vendor portal is generally an internet-based system used to
+                  manage and connect with third party suppliers of goods or/and
+                  services. It should be a secured management system adopted by
+                  organizations that network with multiple suppliers.
+                </h4>
+                <button
+                  class="btn-hover btn-override color-11"
+                  routerLink="/vendor/login"
+                >
+                  EXPLORE VENDOR PORTAL
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="pills-contact"
+            role="tabpanel"
+            aria-labelledby="pills-contact-tab"
+          >
+            <div
+              class="row about-us-text mx-auto mt-5"
+              style="background: white; padding: 2%"
+            >
+              <div
+                class="col-md-6 d-flex align-items-center justify-content-center"
+              >
+                <img
+                  src="../../../assets/Images/employee.svg"
+                  alt="Employee"
+                  class="img-fluid tab-img"
+                  title="Employee"
+                />
+              </div>
+              <div
+                class="col-md-6 d-flex flex-column align-items-center justify-content-center"
+              >
+                <h4 style="line-height: 2; font-size: 18px">
+                  SAP Employee Self Services (ESS) and Manager Self Services
+                  (MSS), your employees can perform numerous HR management
+                  processes on their own, significantly unburdening your HR
+                  department.
+                </h4>
+                <button class="btn-hover btn-override color-11">
+                  EXPLORE EMPLOYEE PORTAL
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="section4" class="sec-4" style="padding-top: 100px">
+      <div
+        class="container h-100 d-flex flex-column align-items-center justify-content-center"
+      >
+        <div class="site-heading text-center">
+          <h2><span>CONTACT US</span></h2>
+          <h4 style="text-transform: unset">Share your ideas</h4>
+        </div>
+        <div class="row w-100 mt-3">
+          <div class="col-md-8 d-flex flex-column">
+            <h2 class="contact-head">Let's talk about your idea</h2>
+            <input
+              aria-label="name"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Name"
+              type="text"
+            />
+            <div class="row mt-3">
+              <div class="col-md-6">
+                <input
+                  aria-label="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  type="email"
+                />
+              </div>
+              <div class="col-md-6">
+                <input
+                  aria-label="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                  type="password"
+                />
+              </div>
+            </div>
+            <textarea
+              aria-label="comments"
+              class="form-control mt-3"
+              id="comments"
+              name="comments"
+              placeholder="Tell Us About Project *"
+            ></textarea>
+            <button class="btn-hover color-11 mt-3 m-0" (click)="goDown1()">
+              SEND MESSAGE
+            </button>
+          </div>
+          <div class="col-md-4 d-flex flex-column">
+            <!-- <div class="d-flex flex-column"></div> -->
+            <h4 class="mt-3 landing-h4">Phone</h4>
+            <div class="d-flex mt-3">
+              <div class="icon"><i class="fas fa-phone"></i></div>
+              <div class="d-flex flex-column pl-3 w-100">
+                <span>+91 1234567890</span>
+                <span>+91 0987654321</span>
+              </div>
+            </div>
+            <h4 class="mt-3 landing-h4">Mail</h4>
+            <div class="d-flex mt-3">
+              <div class="icon"><i class="fas fa-envelope-open"></i></div>
+              <div class="d-flex flex-column pl-3 w-100">
+                <span>sdhanushkarthick@kaartech.com</span>
+                <span>dhanukarthick15@gmail.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <footer class="w-100">
+          <div class="row">
+            <div class="col-md-5">
+              <h4 class="mt-3 landing-h4">KAAR - TECH</h4>
+              <p>
+                Kaar Tech is the World’s Best Pure-Play SAP Digital
+                Transformation Consulting and Partner driven by 1000+
+                Specialized SAP Consultants and 5000+ Man-Years of SAP Expertise
+              </p>
+              <h4 class="mt-3 landing-h4">LET'S STAY IN TOUCH</h4>
+              <div class="input-group start-input">
+                <input
+                  type="email"
+                  id="newsletterMail"
+                  class="form-control"
+                  placeholder="Enter Your Email"
+                  aria-label="News letter mail"
+                />
+                <span class="input-group-addon d-flex align-items-center"
+                  >Let's Start</span
+                >
+              </div>
+              <h4 class="mt-3 landing-h4">FOLLOW US</h4>
+              <div class="d-flex">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram mx-2"></i>
+                <i class="fab fa-twitter mx-2"></i>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <h4 class="mt-3 landing-h4">Links</h4>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" (click)="goDown1()">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" (click)="goDown2()">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" (click)="goDown3()">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" (click)="goDown4()">Contact</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h4 class="mt-3 landing-h4">LINKS</h4>
+              <p>Be ready to grow your business by collaborating with us</p>
+              <h4 class="mt-3 landing-h4">WEBSITE</h4>
+              <div class="d-flex mt-3">
+                <div class="icon"><i class="fas fa-phone"></i></div>
+                <div
+                  class="d-flex flex-column justify-content-center pl-3 w-100"
+                  style="margin-top: -10px"
+                >
+                  <a href="http://localhost:4200/">http://localhost:4200/</a>
+                </div>
+              </div>
+              <h4 class="mt-3 landing-h4">EMAIL</h4>
+              <div class="d-flex mt-3">
+                <div class="icon"><i class="fas fa-phone"></i></div>
+                <div
+                  class="d-flex flex-column justify-content-center pl-3 w-100"
+                  style="margin-top: -10px"
+                >
+                  <a href="dhanukarthick15@gmail.com"
+                    >dhanukarthick15@gmail.com</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

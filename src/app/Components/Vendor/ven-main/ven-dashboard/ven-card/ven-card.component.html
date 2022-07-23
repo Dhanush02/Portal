@@ -1,0 +1,21 @@
+<div class="row flex-wrap align-items-center justify-content-center">
+  <div
+    class="blog-card col-lg-5 col-md-12 col-sm-12 m-2 p-0 w-100"
+    *ngFor="let d of data"
+    style="
+      background: url('{{ d.image }}');
+      background-size: contain; 
+      background-position: 100% 300%;
+    "
+  >
+    <div class="content-mask">
+      <span class="categoryCard">{{ d.category }}</span>
+      <h1 class="categoryh1Tag">{{ d.title }}</h1>
+      <p class="categoryPtag">{{ d.description }}</p>
+      <button class="btn-hover color-11" routerLink="{{ d.path }}">
+        EXPLORE
+      </button>
+    </div>
+    <div class="horizontal"></div>
+  </div>
+</div>
