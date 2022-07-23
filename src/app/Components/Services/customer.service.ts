@@ -43,7 +43,7 @@ export class CustomerService {
   }
   payment_aging() {
     return this.http.post(
-      'http://localhost:4000/api/v1/customer/api/v1/customer/payment-aging',
+      'http://localhost:4000/api/v1/customer/payment-aging',
       {
         uname: parseInt(localStorage.getItem('userid')),
       }
