@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VendorService } from 'src/app/Components/Services/vendor.service';
+import { VenPaymentDialogComponent } from './ven-payment-dialog/ven-payment-dialog.component';
 @Component({
   selector: 'app-ven-pay-age',
   templateUrl: './ven-pay-age.component.html',
@@ -69,15 +70,15 @@ export class VenPayAgeComponent implements OnInit {
       PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
       if (canvas) {
         this.authenticationService.success(
-          'Downloading Purchase Order Report'
+          'Downloading Vendor Payment Aging Report'
         );
       } else {
         this.authenticationService.error(
-          'Error in Downloading Purchase Order Report'
+          'Error in Downloading Vendor Payment Aging Report'
         );
       }
 
-      PDF.save('Quotation-Request.pdf');
+      PDF.save('Vendor-Payment-Aging.pdf');
     });
   }
   applyFilter(event: Event) {
@@ -89,20 +90,20 @@ export class VenPayAgeComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  // onRow(data: any) {
-  //   console.log(data)
-  //   this.inquiryArr.map((item: any) => {
-  //     if (parseInt(item.DOC_NO['_text']) === parseInt(data)) {
-  //       this.newArr = item;
-  //       if (Object.keys(this.newArr).length > 0) {
-  //         this.dialog.open(InquiryDialogComponent, {
-  //           panelClass: 'my-class',
-  //           data: this.newArr,
-  //         });
-  //       }
-  //     }
-  //   });
-  // }
+  onRow(data: any) {
+    console.log(data)
+    this.inquiryArr.map((item: any) => {
+      if (parseInt(item.DOC_NO['_text']) === parseInt(data)) {
+        this.newArr = item;
+        if (Object.keys(this.newArr).length > 0) {
+          this.dialog.open(VenPaymentDialogComponent, {
+            panelClass: 'my-class',
+            data: this.newArr,
+          });
+        }
+      }
+    });
+  }
   getInquiryList = () => {
     this.loader = true;
     this.authenticationService.ven_pay_age().subscribe((data: any) => {

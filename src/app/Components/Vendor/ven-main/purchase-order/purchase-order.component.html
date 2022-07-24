@@ -24,7 +24,7 @@
         #input
       />
     </div>
-    <button class="btn-hover btn-override color-11" (click)="openPDF()">
+    <button class="btn-hover color-11" (click)="openPDF()">
       Download PDF
     </button>
   </div>
@@ -54,6 +54,7 @@
         data-label="docNumber"
         class="p-3 cell-pointer"
         data-toggle="modal"
+        (click)="onRow(row.PO_NUMBER)"
         data-target="#exampleModalCenter"
       >
         {{ row.PO_NUMBER }}

@@ -8,6 +8,7 @@ import { VendorService } from 'src/app/Components/Services/vendor.service';
 import { MatDialog } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PurchaseDialogComponent } from './purchase-dialog/purchase-dialog.component';
 @Component({
   selector: 'app-purchase-order',
   templateUrl: './purchase-order.component.html',
@@ -16,12 +17,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class PurchaseOrderComponent implements OnInit {
   toppings: any = new FormControl('');
   toppingList: string[] = [
-    'EBELN',
+    'VENDOR',
     'PO_NUMBER',
-    'WKURS',
-    'WAERS',
-    'AEDAT',
-    'ERNAM',
+    'EXPORT_NO',
+    'STATUS',
+    'VEND_NAME',
+    'DOC_DATE',
   ];
 
   change(event: any) {
@@ -29,12 +30,12 @@ export class PurchaseOrderComponent implements OnInit {
   }
   @ViewChild('htmlData') htmlData!: ElementRef;
   displayedColumns: string[] = [
-    'EBELN',
+    'VENDOR',
     'PO_NUMBER',
-    'WKURS',
-    'WAERS',
-    'AEDAT',
-    'ERNAM',
+    'EXPORT_NO',
+    'STATUS',
+    'VEND_NAME',
+    'DOC_DATE',
   ];
   dataSource!: MatTableDataSource<UserData>;
   inquiryArr: any;
@@ -77,7 +78,7 @@ export class PurchaseOrderComponent implements OnInit {
         );
       }
 
-      PDF.save('Quotation-Request.pdf');
+      PDF.save('Purchase Order.pdf');
     });
   }
   applyFilter(event: Event) {
@@ -89,23 +90,24 @@ export class PurchaseOrderComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  // onRow(data: any) {
-  //   console.log(data)
-  //   this.inquiryArr.map((item: any) => {
-  //     if (parseInt(item.PO_NUMBER['_text']) === parseInt(data)) {
-  //       this.newArr = item;
-  //       if (Object.keys(this.newArr).length > 0) {
-  //         this.dialog.open(InquiryDialogComponent, {
-  //           panelClass: 'my-class',
-  //           data: this.newArr,
-  //         });
-  //       }
-  //     }
-  //   });
-  // }
+  onRow(data: any) {
+    console.log(data)
+    this.inquiryArr.map((item: any) => {
+      if (parseInt(item.PO_NUMBER['_text']) === parseInt(data)) {
+        this.newArr = item;
+        if (Object.keys(this.newArr).length > 0) {
+          this.dialog.open(PurchaseDialogComponent, {
+            panelClass: 'my-class',
+            data: this.newArr,
+          });
+        }
+      }
+    });
+  }
   getInquiryList = () => {
     this.loader = true;
-    this.authenticationService.quotation().subscribe((data: any) => {
+    this.authenticationService.purchase().subscribe((data: any) => {
+     
       this.inquiryArr =
         data['SOAP:Envelope']['SOAP:Body']['ns0:ZFM_VEN_PO_DK.Response'][
           'HEADER_TABLE'
@@ -116,11 +118,11 @@ export class PurchaseOrderComponent implements OnInit {
         console.log(item)
         return {
           PO_NUMBER: item.PO_NUMBER['_text'],
-          WKURS: item.WKURS['_text'],
-          WAERS: item.WAERS['_text'],
-          EBELN: item.EBELN['_text'],
-          AEDAT: item.AEDAT['_text'],
-          ERNAM: item.ERNAM['_text'],
+          EXPORT_NO: item.EXPORT_NO['_text'],
+          STATUS: item.STATUS['_text'],
+          VENDOR: item.VENDOR['_text'],
+          VEND_NAME: item.VEND_NAME['_text'],
+          DOC_DATE: item.DOC_DATE['_text'],
         };
       });
       // Assign the data to the data source for the table to render

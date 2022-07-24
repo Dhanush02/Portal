@@ -1,0 +1,97 @@
+
+<div class="d-flex justify-content-between">
+  <h1 class="text">VENDOR CREDIT MEMO DETAIL (FINANCE SHEET)</h1>
+  <i class="fas fa-times dialog-close" (click)="onClose()"></i>
+</div>
+<div class="d-flex flex-column dialog-scroll">
+  <div class="d-flex">
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">BLINE_DATE</span>
+      <span class="dialog-span-content">{{ dialog_Arr.BLINE_DATE["_text"] }}</span>
+    </div>
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">DISC_BASE</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.DISC_BASE["_text"]
+      }}</span>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">AMOUNT</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.AMOUNT["_text"]
+      }}</span>
+    </div>
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">DISC_BASE</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.DISC_BASE["_text"]
+      }}</span>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">DOC_DATE</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.DOC_DATE["_text"]
+      }}</span>
+    </div>
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">DOC_TYPE</span>
+      <span class="dialog-span-content">{{ dialog_Arr.DOC_TYPE["_text"] }}</span>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">DSCT_DAYS1</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.DSCT_DAYS1["_text"]
+      }}</span>
+    </div>
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">DSCT_DAYS2</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.DSCT_DAYS2["_text"]
+      }}</span>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">DSCT_PCT1</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.DSCT_PCT1["_text"]
+      }}</span>
+    </div>
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">NETTERMS</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.NETTERMS["_text"]
+      }}</span>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">OBJ_TYPE</span>
+      <span class="dialog-span-content">{{ dialog_Arr.OBJ_TYPE["_text"] }}</span>
+    </div>
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">PMNTTRMS</span>
+      <span class="dialog-span-content">{{ dialog_Arr.PMNTTRMS["_text"] }}</span>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">POST_KEY</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.POST_KEY["_text"]
+      }}</span>
+    </div>
+    <div class="d-flex flex-column py-1 col-6">
+      <span class="dialog-span-label py-1">REF_ORG_UN</span>
+      <span class="dialog-span-content">{{
+        dialog_Arr.REF_ORG_UN["_text"]
+      }}</span>
+    </div>
+  </div>
+</div>

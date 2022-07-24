@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VendorService } from 'src/app/Components/Services/vendor.service';
+import { GoodsDialogComponent } from './goods-dialog/goods-dialog.component';
 @Component({
   selector: 'app-goods-receipt',
   templateUrl: './goods-receipt.component.html',
@@ -68,14 +69,14 @@ export class GoodsReceiptComponent implements OnInit {
       let position = 0;
       PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
       if (canvas) {
-        this.authenticationService.success('Downloading Goods Recipt Report');
+        this.authenticationService.success('Downloading Goods Receipt Report');
       } else {
         this.authenticationService.error(
-          'Error in Downloading Goods Recipt Report'
+          'Error in Downloading Goods Receipt Report'
         );
       }
 
-      PDF.save('Goods-Recipt.pdf');
+      PDF.save('Goods-Receipt.pdf');
     });
   }
   applyFilter(event: Event) {
@@ -87,20 +88,20 @@ export class GoodsReceiptComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  // onRow(data: any) {
-  //   console.log(data)
-  //   this.inquiryArr.map((item: any) => {
-  //     if (parseInt(item.MAT_DOC['_text']) === parseInt(data)) {
-  //       this.newArr = item;
-  //       if (Object.keys(this.newArr).length > 0) {
-  //         this.dialog.open(InquiryDialogComponent, {
-  //           panelClass: 'my-class',
-  //           data: this.newArr,
-  //         });
-  //       }
-  //     }
-  //   });
-  // }
+  onRow(data: any) {
+    console.log(data)
+    this.inquiryArr.map((item: any) => {
+      if (parseInt(item.MAT_DOC['_text']) === parseInt(data)) {
+        this.newArr = item;
+        if (Object.keys(this.newArr).length > 0) {
+          this.dialog.open(GoodsDialogComponent, {
+            panelClass: 'my-class',
+            data: this.newArr,
+          });
+        }
+      }
+    });
+  }
   getInquiryList = () => {
     this.loader = true;
     this.authenticationService.goods().subscribe((data: any) => {
@@ -127,7 +128,7 @@ export class GoodsReceiptComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       this.loader = false;
-      this.authenticationService.info('Quotation List');
+      this.authenticationService.info('Goods Receipt');
     });
   };
 }

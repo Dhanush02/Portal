@@ -8,6 +8,7 @@ import { VendorService } from 'src/app/Components/Services/vendor.service';
 import { MatDialog } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { QuotationDialogComponent } from './quotation-dialog/quotation-dialog.component';
 @Component({
   selector: 'app-quotation-req',
   templateUrl: './quotation-req.component.html',
@@ -89,20 +90,20 @@ export class QuotationReqComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  // onRow(data: any) {
-  //   console.log(data)
-  //   this.inquiryArr.map((item: any) => {
-  //     if (parseInt(item.LIFNR['_text']) === parseInt(data)) {
-  //       this.newArr = item;
-  //       if (Object.keys(this.newArr).length > 0) {
-  //         this.dialog.open(InquiryDialogComponent, {
-  //           panelClass: 'my-class',
-  //           data: this.newArr,
-  //         });
-  //       }
-  //     }
-  //   });
-  // }
+  onRow(data: any) {
+    console.log(data)
+    this.inquiryArr.map((item: any) => {
+      if (parseInt(item.EBELN['_text']) === parseInt(data)) {
+        this.newArr = item;
+        if (Object.keys(this.newArr).length > 0) {
+          this.dialog.open(QuotationDialogComponent, {
+            panelClass: 'my-class',
+            data: this.newArr,
+          });
+        }
+      }
+    });
+  }
   getInquiryList = () => {
     this.loader = true;
     this.authenticationService.quotation().subscribe((data: any) => {

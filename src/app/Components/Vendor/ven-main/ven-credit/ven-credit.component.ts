@@ -8,6 +8,7 @@ import { VendorService } from 'src/app/Components/Services/vendor.service';
 import { MatDialog } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { VenCreditDialogComponent } from './ven-credit-dialog/ven-credit-dialog.component';
 @Component({
   selector: 'app-ven-credit',
   templateUrl: './ven-credit.component.html',
@@ -68,14 +69,14 @@ export class VenCreditComponent implements OnInit {
       let position = 0;
       PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
       if (canvas) {
-        this.authenticationService.success('Downloading Purchase Order Report');
+        this.authenticationService.success('Downloading Vendor Credit Report');
       } else {
         this.authenticationService.error(
-          'Error in Downloading Purchase Order Report'
+          'Error in Downloading Vendor Credit Report'
         );
       }
 
-      PDF.save('Quotation-Request.pdf');
+      PDF.save('Vendor-Credit.pdf');
     });
   }
   applyFilter(event: Event) {
@@ -87,20 +88,20 @@ export class VenCreditComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  // onRow(data: any) {
-  //   console.log(data)
-  //   this.inquiryArr.map((item: any) => {
-  //     if (parseInt(item.DOC_NO['_text']) === parseInt(data)) {
-  //       this.newArr = item;
-  //       if (Object.keys(this.newArr).length > 0) {
-  //         this.dialog.open(InquiryDialogComponent, {
-  //           panelClass: 'my-class',
-  //           data: this.newArr,
-  //         });
-  //       }
-  //     }
-  //   });
-  // }
+  onRow(data: any) {
+    console.log(data)
+    this.inquiryArr.map((item: any) => {
+      if (parseInt(item.DOC_NO['_text']) === parseInt(data)) {
+        this.newArr = item;
+        if (Object.keys(this.newArr).length > 0) {
+          this.dialog.open(VenCreditDialogComponent, {
+            panelClass: 'my-class',
+            data: this.newArr,
+          });
+        }
+      }
+    });
+  }
   getInquiryList = () => {
     this.loader = true;
     this.authenticationService.ven_credit().subscribe((data: any) => {
@@ -128,7 +129,7 @@ export class VenCreditComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       this.loader = false;
-      this.authenticationService.info('Quotation List');
+      this.authenticationService.info('Vendor Credit List');
     });
   };
 }

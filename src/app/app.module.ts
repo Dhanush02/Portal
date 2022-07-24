@@ -33,6 +33,12 @@ import { VenInvoiceComponent } from './Components/Vendor/ven-main/ven-invoice/ve
 import { VenPayAgeComponent } from './Components/Vendor/ven-main/ven-pay-age/ven-pay-age.component';
 import { VenProfileComponent } from './Components/Vendor/ven-main/ven-profile/ven-profile.component';
 import { VenCardComponent } from './Components/Vendor/ven-main/ven-dashboard/ven-card/ven-card.component';
+import { GoodsDialogComponent } from './Components/Vendor/ven-main/goods-receipt/goods-dialog/goods-dialog.component';
+import { PurchaseDialogComponent } from './Components/Vendor/ven-main/purchase-order/purchase-dialog/purchase-dialog.component';
+import { QuotationDialogComponent } from './Components/Vendor/ven-main/quotation-req/quotation-dialog/quotation-dialog.component';
+import { VenInvoiceDialogComponent } from './Components/Vendor/ven-main/ven-invoice/ven-invoice-dialog/ven-invoice-dialog.component';
+import { VenPaymentDialogComponent } from './Components/Vendor/ven-main/ven-pay-age/ven-payment-dialog/ven-payment-dialog.component';
+import { VenCreditDialogComponent } from './Components/Vendor/ven-main/ven-credit/ven-credit-dialog/ven-credit-dialog.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +69,13 @@ import { VenCardComponent } from './Components/Vendor/ven-main/ven-dashboard/ven
     VenInvoiceComponent,
     VenPayAgeComponent,
     VenProfileComponent,
-    VenCardComponent
+    VenCardComponent,
+    GoodsDialogComponent,
+    PurchaseDialogComponent,
+    QuotationDialogComponent,
+    VenInvoiceDialogComponent,
+    VenPaymentDialogComponent,
+    VenCreditDialogComponent
   ],
   imports: [
     BrowserModule,
