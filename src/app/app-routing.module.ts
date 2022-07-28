@@ -12,6 +12,12 @@ import { OverallSalesComponent } from './Components/Customer/main/overall-sales/
 import { PaymentAgingComponent } from './Components/Customer/main/payment-aging/payment-aging.component';
 import { ProfileComponent } from './Components/Customer/main/profile/profile.component';
 import { SalesOrderComponent } from './Components/Customer/main/sales-order/sales-order.component';
+import { EmployeeLoginComponent } from './Components/Employee/employee-login/employee-login.component';
+import { EmpProfileComponent } from './Components/Employee/employee-main/emp-profile/emp-profile.component';
+import { EmployeeDashboardComponent } from './Components/Employee/employee-main/employee-dashboard/employee-dashboard.component';
+import { EmployeeMainComponent } from './Components/Employee/employee-main/employee-main.component';
+import { LeaveRequestComponent } from './Components/Employee/employee-main/leave-request/leave-request.component';
+import { PayslipComponent } from './Components/Employee/employee-main/payslip/payslip.component';
 import { HomeComponent } from './Components/home/home.component';
 import { VenLoginComponent } from './Components/Vendor/ven-login/ven-login.component';
 import { GoodsReceiptComponent } from './Components/Vendor/ven-main/goods-receipt/goods-receipt.component';
@@ -103,6 +109,17 @@ const routes: Routes = [
         path: 'vendor-debit',
         component: VenDebitComponent,
       },
+    ],
+  },
+  { path: 'employee/login', component: EmployeeLoginComponent },
+  {
+    path: 'employee/dashboard',
+    component: EmployeeMainComponent,
+    children: [
+      { path: '', component: EmployeeDashboardComponent },
+      { path: 'leave-request', component: LeaveRequestComponent },
+      { path: 'payslip', component: PayslipComponent },
+      { path: 'profile', component: EmpProfileComponent },
     ],
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

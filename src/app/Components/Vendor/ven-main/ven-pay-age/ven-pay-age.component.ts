@@ -131,7 +131,7 @@ export class VenPayAgeComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       this.loader = false;
-      this.authenticationService.info('Quotation List');
+      this.authenticationService.info('Vendor Payment and Aging List');
     });
   };
 }

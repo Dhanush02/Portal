@@ -131,7 +131,7 @@ export class PurchaseOrderComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       this.loader = false;
-      this.authenticationService.info('Quotation List');
+      this.authenticationService.info('Purchase Order List');
     });
   };
 }

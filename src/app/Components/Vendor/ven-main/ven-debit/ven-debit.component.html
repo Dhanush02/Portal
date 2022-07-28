@@ -1,1 +1,131 @@
-<p>ven-debit works!</p>
+<app-loader [loader]="loader"></app-loader>
+<form [formGroup]="form" *ngIf="dataArr.length > 0">
+  <mat-form-field appearance="fill" class="w-50">
+    <mat-label>Select Columns</mat-label>
+    <mat-select
+      formControlName="toppingList"
+      (selectionChange)="change($event)"
+      multiple
+    >
+      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{
+        topping
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+<div class="container-fluid p-0 w-100" *ngIf="dataArr.length > 0">
+  <div class="d-flex align-items-center justify-content-between">
+    <div class="input-field">
+      <i class="fas fa-search"></i>
+      <input
+        type="text"
+        (keyup)="applyFilter($event)"
+        placeholder="Search"
+        #input
+      />
+    </div>
+    <button class="btn-hover color-11" (click)="openPDF()">Download PDF</button>
+  </div>
+</div>
+
+<div class="d-flex align-items-center justify-content-center flex-column">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    id="htmlData"
+    class="mat-tab table-striped"
+    *ngIf="dataArr.length > 0"
+  >
+    <ng-container matColumnDef="DOC_NO">
+      <th
+        title="DOC_NO"
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        class="table-row"
+      >
+        DOC_NO
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let row"
+        data-label="docNumber"
+        class="p-3 cell-pointer"
+        data-toggle="modal"
+        data-target="#exampleModalCenter"
+      >
+        {{ row.DOC_NO }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="AMOUNT">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
+        AMOUNT
+      </th>
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="AMOUNT">
+        {{ row.AMOUNT }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="COMP_CODE">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
+        COMP_CODE
+      </th>
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="COMP_CODE">
+        {{ row.COMP_CODE }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="VENDOR">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
+        VENDOR
+      </th>
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="VENDOR">
+        {{ row.VENDOR }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="REF_DOC">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
+        REF_DOC
+      </th>
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="REF_DOC">
+        {{ row.REF_DOC }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="DOC_DATE">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
+        DOC_DATE
+      </th>
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="DOC_DATE">
+        {{ row.DOC_DATE }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="selectedArr"></tr>
+    <tr mat-row *matRowDef="let row; columns: selectedArr"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4" *ngIf="dataArr.length > 0">
+        No data matching the filter
+      </td>
+    </tr>
+  </table>
+
+  <div
+  style="height: 80vh;"
+    *ngIf="dataArr.length === 0"
+    class="d-flex flex-column align-items-center justify-content-center"
+  >
+    <img src="../../../../../assets/Images/no-data.svg" height="400" width="400" class="img-fluid" />
+    <h2 class="no-data-text my-3">No data Found</h2>
+  </div>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10]"
+    aria-label="Select page of users"
+    *ngIf="dataArr.length > 0"
+  ></mat-paginator>
+</div>

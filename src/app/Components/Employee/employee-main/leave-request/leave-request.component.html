@@ -1,0 +1,20 @@
+<div class="main-container my-5">
+  <div class="cards">
+    <div class="card card-4" *ngFor="let item of leaveReqArr">
+      <h4 class="card__title">Employee No : {{ item.EMPLOYEENO['_text'] }}</h4>
+      <h5 class="card__title">Absent Type : {{ item.NAMEOFABSENCETYPE['_text'] }}</h5>
+      <h6 class="card__title">Absent Days : {{ item.ABSENCEDAYS['_text'] }}</h6>
+      <h6 class="card__title">Absent Hours : {{ item.ABSENCEHOURS['_text'] }}</h6>
+      <div class="d-flex flex-column">
+        <div class="d-flex my-1">
+          <span class="">VALID BEGIN : </span>
+          <span class="card-date mx-2">{{ item.VALIDBEGIN['_text'] }}</span>
+        </div>
+        <div class="d-flex my-1">
+          <span class="">VALID END :</span>
+          <span class="card-date mx-2">{{ item.VALIDEND['_text'] }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

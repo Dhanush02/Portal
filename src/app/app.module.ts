@@ -39,6 +39,12 @@ import { QuotationDialogComponent } from './Components/Vendor/ven-main/quotation
 import { VenInvoiceDialogComponent } from './Components/Vendor/ven-main/ven-invoice/ven-invoice-dialog/ven-invoice-dialog.component';
 import { VenPaymentDialogComponent } from './Components/Vendor/ven-main/ven-pay-age/ven-payment-dialog/ven-payment-dialog.component';
 import { VenCreditDialogComponent } from './Components/Vendor/ven-main/ven-credit/ven-credit-dialog/ven-credit-dialog.component';
+import { EmployeeLoginComponent } from './Components/Employee/employee-login/employee-login.component';
+import { EmployeeMainComponent } from './Components/Employee/employee-main/employee-main.component';
+import { PayslipComponent } from './Components/Employee/employee-main/payslip/payslip.component';
+import { LeaveRequestComponent } from './Components/Employee/employee-main/leave-request/leave-request.component';
+import { EmployeeDashboardComponent } from './Components/Employee/employee-main/employee-dashboard/employee-dashboard.component';
+import { EmpProfileComponent } from './Components/Employee/employee-main/emp-profile/emp-profile.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +81,13 @@ import { VenCreditDialogComponent } from './Components/Vendor/ven-main/ven-credi
     QuotationDialogComponent,
     VenInvoiceDialogComponent,
     VenPaymentDialogComponent,
-    VenCreditDialogComponent
+    VenCreditDialogComponent,
+    EmployeeLoginComponent,
+    EmployeeMainComponent,
+    PayslipComponent,
+    LeaveRequestComponent,
+    EmployeeDashboardComponent,
+    EmpProfileComponent
   ],
   imports: [
     BrowserModule,

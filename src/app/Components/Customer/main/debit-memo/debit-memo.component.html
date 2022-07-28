@@ -1,4 +1,18 @@
 <app-loader [loader]="loader"></app-loader>
+<form [formGroup]="form">
+  <mat-form-field appearance="fill" class="w-50">
+    <mat-label>Select Columns</mat-label>
+    <mat-select
+      formControlName="toppingList"
+      (selectionChange)="change($event)"
+      multiple
+    >
+      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{
+        topping
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
 <div class="container-fluid p-0 mt-3 w-100" >
   <div class="d-flex align-items-center justify-content-between">
     <div class="input-field">
@@ -97,8 +111,8 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="selectedArr"></tr>
+    <tr mat-row *matRowDef="let row; columns: selectedArr"></tr>
 
     <tr class="mat-row" *matNoDataRow>
       <td class="mat-cell" colspan="4">

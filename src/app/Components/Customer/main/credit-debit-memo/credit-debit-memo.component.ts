@@ -7,13 +7,27 @@ import html2canvas from 'html2canvas';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomerService } from 'src/app/Components/Services/customer.service';
 import { CreditDialogComponent } from './credit-dialog/credit-dialog.component';
-
+import { FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-credit-debit-memo',
   templateUrl: './credit-debit-memo.component.html',
   styleUrls: ['./credit-debit-memo.component.css'],
 })
 export class CreditDebitMemoComponent implements OnInit {
+  toppings: any = new FormControl('');
+  toppingList: string[] = [
+    'DOC_NO',
+    'COMP_CODE',
+    'CUSTOMER',
+    'DB_CR_IND',
+    'DISC_BASE',
+    'CURRENCY',
+  ];
+
+  change(event: any) {
+    this.selectedArr = event.value;
+  }
   @ViewChild('htmlData') htmlData!: ElementRef;
   displayedColumns: string[] = [
     'DOC_NO',
@@ -26,17 +40,24 @@ export class CreditDebitMemoComponent implements OnInit {
   dataSource!: MatTableDataSource<UserData>;
   creditArr: any;
   @Input() loader: boolean;
+  selectedArr: any;
   dialog_Arr: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   ngOnInit() {
-    console.log('credit on init');
     this.getInquiryList();
+    this.selectedArr = this.toppingList;
   }
+  form: FormGroup = new FormGroup({});
   constructor(
     private authenticationService: CustomerService,
-    private dialog: MatDialog
-  ) {}
+    private dialog: MatDialog,
+    private fb: FormBuilder
+  ) {
+    this.form = this.fb.group({
+      toppingList: [this.toppingList, [Validators.required]],
+    });
+  }
   public openPDF(): void {
     let DATA: any = document.getElementById('htmlData');
     html2canvas(DATA, { scale: 3 }).then((canvas) => {

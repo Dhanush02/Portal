@@ -9,38 +9,34 @@
         <div
           class="d-flex flex-column align-items-center justify-content-center"
         >
-          <span class="listing-name">{{
-            profileArr["E_GENERALDETAIL"]["VENDOR"]["_text"]
-          }}</span>
-          <span class="listing-role">{{
-            profileArr["E_GENERALDETAIL"]["POSTL_CODE"]["_text"]
-          }}</span>
+          <span class="listing-name">{{ profileArr["ENAME"]["_text"] }}</span>
+          <span class="listing-role">{{ profileArr["PERNR"]["_text"] }}</span>
         </div>
       </div>
       <span class="dialog-span-label p-2">COMPANY DETAILS :</span>
       <div class="d-flex flex-column p-3 user-profile-div">
         <div class="d-flex flex-column py-1">
           <span class="dialog-span-label user-label py-1"
-            ><i class="fas fa-user px-2"></i>Company Code</span
+            ><i class="fas fa-user px-2"></i>LAND</span
           >
           <span class="dialog-span-content px-2">{{
-            profileArr["E_COMPANYDETAIL"]["COMP_CODE"]["_text"]
+            profileArr["LAND"]["_text"]
           }}</span>
         </div>
         <div class="d-flex flex-column py-1">
           <span class="dialog-span-label user-label py-1"
-            ><i class="fas fa-address-card px-2"></i>PAYMENT_METHODS</span
+            ><i class="fas fa-address-card px-2"></i>Name</span
           >
           <span class="dialog-span-content px-2">{{
-            profileArr["E_COMPANYDETAIL"]["PAYMENT_METHODS"]["_text"]
+            profileArr["NACHN"]["_text"]
           }}</span>
         </div>
         <div class="d-flex flex-column py-1">
           <span class="dialog-span-label user-label py-1"
-            ><i class="fas fa-home px-2"></i>PMNTTRMS</span
+            ><i class="fas fa-home px-2"></i>COUNTRY</span
           >
           <span class="dialog-span-content px-2">{{
-            profileArr["E_COMPANYDETAIL"]["PMNTTRMS"]["_text"]
+            profileArr["NATIO"]["_text"]
           }}</span>
         </div>
       </div>
@@ -51,18 +47,18 @@
         <div class="d-flex col-md-12 flex-wrap p-3 user-profile-div">
           <div class="d-flex col-6 p-0 flex-column py-1">
             <span class="dialog-span-label user-label py-1"
-              ><i class="fas fa-address-book px-2"></i>FULL NAME</span
+              ><i class="fas fa-address-book px-2"></i>DOB</span
             >
             <span class="dialog-span-content px-2">{{
-              profileArr["E_GENERALDETAIL"]["NAME"]["_text"]
+              profileArr["BEGDA"]["_text"]
             }}</span>
           </div>
           <div class="d-flex col-6 p-0 flex-column py-1">
             <span class="dialog-span-label user-label py-1"
-              ><i class="fas fa-address-book px-2"></i>NAME</span
+              ><i class="fas fa-address-book px-2"></i>COMPANY CODE</span
             >
             <span class="dialog-span-content px-2">{{
-              profileArr["E_GENERALDETAIL"]["VENDOR"]["_text"]
+              profileArr["BUKRS"]["_text"]
             }}</span>
           </div>
           <div class="d-flex col-6 p-0 flex-column py-1">
@@ -70,7 +66,7 @@
               ><i class="fas fa-phone px-2"></i>PHONE</span
             >
             <span class="dialog-span-content px-2">{{
-              profileArr["E_GENERALDETAIL"]["TELEPHONE"]["_text"]
+              profileArr["TELNR"]["_text"]
             }}</span>
           </div>
           <div class="d-flex col-6 p-0 flex-column py-1">
@@ -78,7 +74,7 @@
               ><i class="fas fa-address-card px-2"></i>ADDRESS</span
             >
             <span class="dialog-span-content px-2">{{
-              profileArr["E_GENERALDETAIL"]["STREET"]["_text"]
+              profileArr["STRAS"]["_text"]
             }}</span>
           </div>
           <div class="d-flex col-6 p-0 flex-column py-1">
@@ -86,7 +82,7 @@
               ><i class="fas fa-globe px-2"></i>POSTAL CODE</span
             >
             <span class="dialog-span-content px-2">{{
-              profileArr["E_GENERALDETAIL"]["POSTL_CODE"]["_text"]
+              profileArr["PSTLZ"]["_text"]
             }}</span>
           </div>
         </div>
@@ -95,44 +91,68 @@
           <div class="d-flex col-md-6 flex-wrap p-3 user-profile-div">
             <div class="d-flex col-12 p-0 flex-column py-1">
               <span class="dialog-span-label user-label py-1"
-                ><i class="fas fa-book px-2"></i>BANK_ACCT</span
+                ><i class="fas fa-book px-2"></i>PLANS_TXT</span
               >
               <span class="dialog-span-content px-2">{{
-                profileArr["ET_BANKDETAIL"]["item"]["BANK_ACCT"]["_text"]
+                profileArr["PLANS_TXT"]["_text"]
               }}</span>
             </div>
             <div class="d-flex col-12 p-0 flex-column py-1">
               <span class="dialog-span-label user-label py-1"
-                ><i class="fas fa-book px-2"></i>BANK_CTRY</span
+                ><i class="fas fa-book px-2"></i>VORNA</span
               >
               <span class="dialog-span-content px-2">{{
-                profileArr["ET_BANKDETAIL"]["item"]["BANK_CTRY"]["_text"]
+                profileArr["VORNA"]["_text"]
               }}</span>
             </div>
             <div class="d-flex col-12 p-0 flex-column py-1">
               <span class="dialog-span-label user-label py-1"
-                ><i class="fas fa-book px-2"></i>BANK_KEY</span
+                ><i class="fas fa-book px-2"></i>PERSK</span
               >
               <span class="dialog-span-content px-2">{{
-                profileArr["ET_BANKDETAIL"]["item"]["BANK_KEY"]["_text"]
+                profileArr["PERSK"]["_text"]
               }}</span>
             </div>
             <div class="d-flex col-12 p-0 flex-column py-1">
               <span class="dialog-span-label user-label py-1"
-                ><i class="fas fa-book px-2"></i>IBAN</span
+                ><i class="fas fa-book px-2"></i>PLANS</span
               >
               <span class="dialog-span-content px-2">{{
-                profileArr["ET_VENDORIBANDETAIL"]["item"]["IBAN"]["_text"]
+                profileArr["PLANS"]["_text"]
               }}</span>
             </div>
           </div>
           <div class="d-flex col-md-6 flex-wrap mx-1 p-3 user-profile-div">
             <div class="d-flex col-12 p-0 flex-column py-1">
               <span class="dialog-span-label user-label py-1"
-                ><i class="fas fa-users px-2"></i>VALID_FROM</span
+                ><i class="fas fa-users px-2"></i>ENDDA</span
               >
               <span class="dialog-span-content px-2">{{
-                profileArr["ET_VENDORIBANDETAIL"]["item"]["VALID_FROM"]["_text"]
+                profileArr["ENDDA"]["_text"]
+              }}</span>
+            </div>
+            <div class="d-flex col-12 p-0 flex-column py-1">
+              <span class="dialog-span-label user-label py-1"
+                ><i class="fas fa-user px-2"></i>GESCH</span
+              >
+              <span class="dialog-span-content px-2">{{
+                profileArr["GESCH"]["_text"]
+              }}</span>
+            </div>
+            <div class="d-flex col-12 p-0 flex-column py-1">
+              <span class="dialog-span-label user-label py-1"
+                ><i class="fas fa-address-book px-2"></i>GBDAT</span
+              >
+              <span class="dialog-span-content px-2">{{
+                profileArr["GBDAT"]["_text"]
+              }}</span>
+            </div>
+            <div class="d-flex col-12 p-0 flex-column py-1">
+              <span class="dialog-span-label user-label py-1"
+                ><i class="fas fa-user px-2"></i>ORGEH_TXT</span
+              >
+              <span class="dialog-span-content px-2">{{
+                profileArr["ORGEH_TXT"]["_text"]
               }}</span>
             </div>
           </div>

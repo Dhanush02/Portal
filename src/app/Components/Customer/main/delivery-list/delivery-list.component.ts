@@ -7,13 +7,29 @@ import html2canvas from 'html2canvas';
 import { MatDialog } from '@angular/material/dialog';
 import { DeliveryDialogComponent } from './delivery-dialog/delivery-dialog.component';
 import { CustomerService } from 'src/app/Components/Services/customer.service';
+import { FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-delivery-list',
   templateUrl: './delivery-list.component.html',
   styleUrls: ['./delivery-list.component.css'],
 })
 export class DeliveryListComponent implements OnInit {
+  toppings: any = new FormControl('');
+  toppingList: string[] = [
+    'VBELN',
+    'WADAT',
+    'WADAT_IST',
+    'WAERK',
+    'WAUHR',
+    'ERNAM',
+  ];
+
+  change(event: any) {
+    this.selectedArr = event.value;
+  }
   @Input() loader: boolean;
+  selectedArr: any;
   @ViewChild('htmlData') htmlData!: ElementRef;
   displayedColumns: string[] = [
     'VBELN',
@@ -30,11 +46,18 @@ export class DeliveryListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   ngOnInit() {
     this.getInquiryList();
+    this.selectedArr = this.toppingList;
   }
+  form: FormGroup = new FormGroup({});
   constructor(
     private authenticationService: CustomerService,
-    private dialog: MatDialog
-  ) {}
+    private dialog: MatDialog,
+    private fb: FormBuilder
+  ) {
+    this.form = this.fb.group({
+      toppingList: [this.toppingList, [Validators.required]],
+    });
+  }
   public openPDF(): void {
     let DATA: any = document.getElementById('htmlData');
     html2canvas(DATA, { scale: 3 }).then((canvas) => {

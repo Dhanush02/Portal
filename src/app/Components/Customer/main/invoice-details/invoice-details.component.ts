@@ -8,13 +8,27 @@ import html2canvas from 'html2canvas';
 import { MatDialog } from '@angular/material/dialog';
 import { InvoiceDialogComponent } from './invoice-dialog/invoice-dialog.component';
 import { CustomerService } from 'src/app/Components/Services/customer.service';
-
+import { FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-invoice-details',
   templateUrl: './invoice-details.component.html',
   styleUrls: ['./invoice-details.component.css'],
 })
 export class InvoiceDetailsComponent implements OnInit {
+  toppings: any = new FormControl('');
+  toppingList: string[] = [
+    'KIDNO',
+    'LOGSYS',
+    'ERDAT',
+    'ERNAM',
+    'WAERK',
+    'VBTYP',
+  ];
+
+  change(event: any) {
+    this.selectedArr = event.value;
+  }
   @ViewChild('htmlData') htmlData!: ElementRef;
   displayedColumns: string[] = [
     'KIDNO',
@@ -28,15 +42,23 @@ export class InvoiceDetailsComponent implements OnInit {
   invoiceArr: any;
   dialog_Arr: any;
   @Input() loader: boolean;
+  selectedArr: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   ngOnInit() {
     this.getInquiryList();
+    this.selectedArr = this.toppingList;
   }
+  form: FormGroup = new FormGroup({});
   constructor(
     private authenticationService: CustomerService,
-    private dialog: MatDialog
-  ) {}
+    private dialog: MatDialog,
+    private fb: FormBuilder
+  ) {
+    this.form = this.fb.group({
+      toppingList: [this.toppingList, [Validators.required]],
+    });
+  }
   public openPDF(): void {
     let DATA: any = document.getElementById('htmlData');
     html2canvas(DATA, { scale: 3 }).then((canvas) => {

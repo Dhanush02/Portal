@@ -112,10 +112,14 @@
           title="view profile"
           [matMenuTriggerFor]="menu"
         >
-          <div class="listing--avatar">DK</div>
+          <div class="listing--avatar">{{ avatar }}</div>
           <div class="d-flex flex-column">
-            <span class="listing--name"> DHANUSH KARTHICK </span>
-            <span class="listing--role"> 900000000 </span>
+            <span class="listing--name">{{
+              profileArr["E_GENERALDETAIL"]["VENDOR"]["_text"]
+            }}</span>
+            <span class="listing--role">{{
+              profileArr["E_GENERALDETAIL"]["POSTL_CODE"]["_text"]
+            }}</span>
           </div>
           <mat-menu #menu="matMenu">
             <button mat-menu-item [routerLink]="['/vendor/dashboard/profile']">

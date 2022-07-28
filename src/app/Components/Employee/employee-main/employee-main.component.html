@@ -1,0 +1,83 @@
+<!-- <app-loader [loader]="loader"></app-loader> -->
+<div class="container-fluid">
+  <div class="row">
+    <div [ngClass]="flagIcon1 ? 'sidebar open' : 'sidebar'">
+      <div class="d-flex align-items-center justify-content-center">
+        <img
+          src="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg/sap-logo-svg.svg"
+          class="img-fluid mt-3"
+          style="cursor: pointer"
+          routerLink="/employee/dashboard"
+        />
+        <!-- (click)="routeDashboard()" -->
+      </div>
+
+      <ul class="nav-list">
+        <span class="dashboard-header-span">EMPLOYEE DASHBOARD</span>
+        <li>
+          <a
+            routerLink="/employee/dashboard/leave-request"
+            routerLinkActive="active"
+          >
+            <i class="fas fa-th-list"></i>
+            <span class="links_name">Leave Request</span>
+          </a>
+          <span class="tooltip">Leave Request</span>
+        </li>
+        <li>
+          <a routerLink="/employee/dashboard/payslip" routerLinkActive="active">
+            <i class="fas fa-credit-card"></i>
+            <span class="links_name">PaySlip</span>
+          </a>
+          <span class="tooltip">PaySlip</span>
+        </li>
+        <li class="profile" (click)="toggleNav()">
+          <a>
+            <i
+              [ngClass]="
+                flagIcon1
+                  ? 'fas fa-arrow-circle-left'
+                  : 'fas fa-arrow-circle-right'
+              "
+              id="#btn"
+            ></i>
+            <span class="links_name">Toggle Sidebar</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="home-section">
+      <div class="listing d-flex align-items-center justify-content-between">
+        <div className="back-btn mt-3 ml-4">
+          <div className="triangle"></div>
+          <div className="halfcircle"></div>
+        </div>
+        <div
+          class="d-flex align-items-center justify-content-center cell-pointer"
+          title="view profile"
+          [matMenuTriggerFor]="menu"
+        >
+          <div class="listing--avatar">{{ avatar }}</div>
+          <div class="d-flex flex-column">
+            <span class="listing--name">
+              {{ profileArr["ENAME"]["_text"] }}
+            </span>
+            <span class="listing--role">
+              {{ profileArr["PERNR"]["_text"] }}
+            </span>
+          </div>
+          <mat-menu #menu="matMenu">
+            <button
+              mat-menu-item
+              [routerLink]="['/employee/dashboard/profile']"
+            >
+              View Profile
+            </button>
+            <button mat-menu-item (click)="logout()">Logout</button>
+          </mat-menu>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

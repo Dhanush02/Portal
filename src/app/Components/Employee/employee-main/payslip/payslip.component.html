@@ -13,7 +13,7 @@
     </mat-select>
   </mat-form-field>
 </form>
-<div class="container-fluid p-0 mt-3 w-100">
+<div class="container-fluid p-0 w-100">
   <div class="d-flex align-items-center justify-content-between">
     <div class="input-field">
       <i class="fas fa-search"></i>
@@ -24,85 +24,88 @@
         #input
       />
     </div>
-    <button class="btn-hover color-11" (click)="openPDF()">
-      Download PDF
-    </button>
+    <button class="btn-hover color-11" (click)="openPDF()">Download PDF</button>
   </div>
 </div>
 
-<div>
+<div class="d-flex align-items-center justify-content-center flex-column">
   <table
     mat-table
     [dataSource]="dataSource"
     matSort
     id="htmlData"
-    class="mat-tab table-striped mat-elevation-z8"
+    class="mat-tab table-striped"
   >
-    <ng-container matColumnDef="VBELN">
+    <ng-container matColumnDef="SeqNo">
       <th
-        title="ID"
+        title="SeqNo"
         mat-header-cell
         *matHeaderCellDef
         mat-sort-header
         class="table-row"
       >
-      VBELN
+        SeqNo
       </th>
       <td
         mat-cell
         *matCellDef="let row"
-        data-label="salesDoc"
+        data-label="docNumber"
         class="p-3 cell-pointer"
-        (click)="onRow(row.VBELN)"
         data-toggle="modal"
         data-target="#exampleModalCenter"
       >
-        {{ row.VBELN }}
+        {{ row.SeqNo }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="WADAT">
+    <ng-container matColumnDef="Paytype_text">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
-        WADAT
+        Paytype_text
       </th>
-      <td mat-cell *matCellDef="let row" class="p-3" data-label="description">
-        {{ row.WADAT}}
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="Paytype_text">
+        {{ row.Paytype_text }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="WADAT_IST">
+    <ng-container matColumnDef="Fiscal_period">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
-        WADAT_IST
+        Fiscal_period
       </th>
-      <td mat-cell *matCellDef="let row" class="p-3" data-label="date">
-        {{ row.WADAT_IST }}
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="Fiscal_period">
+        {{ row.Fiscal_period }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="WAERK">
+    <ng-container matColumnDef="PayDate">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
-        WAERK
+        PayDate
       </th>
-      <td mat-cell *matCellDef="let row" class="p-3" data-label="soldTo">
-        {{ row.WAERK }}
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="PayDate">
+        {{ row.PayDate }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="WAUHR">
+    <ng-container matColumnDef="Date">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
-        WAUHR
+        Date
       </th>
-      <td mat-cell *matCellDef="let row" class="p-3" data-label="category">
-        {{ row.WAUHR }}
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="Date">
+        {{ row.Date }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="ERNAM">
+    <ng-container matColumnDef="Download">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
-        ERNAM
+        Download
       </th>
-      <td mat-cell *matCellDef="let row" class="p-3" data-label="name">
-        {{ row.ERNAM }}
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="Download">
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="pdfDownload(row.SeqNo, row.Fiscal_period)"
+        >
+          Download
+        </button>
       </td>
     </ng-container>
 

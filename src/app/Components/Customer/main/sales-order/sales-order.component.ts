@@ -7,12 +7,27 @@ import html2canvas from 'html2canvas';
 import { MatDialog } from '@angular/material/dialog';
 import { SalesDialogComponent } from './sales-dialog/sales-dialog.component';
 import { CustomerService } from 'src/app/Components/Services/customer.service';
+import { FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-sales-order',
   templateUrl: './sales-order.component.html',
   styleUrls: ['./sales-order.component.css'],
 })
 export class SalesOrderComponent implements OnInit {
+  toppings: any = new FormControl('');
+  toppingList: string[] = [
+    'salesDoc',
+    'description',
+    'soldTo',
+    'name',
+    'category',
+    'date',
+  ];
+
+  change(event: any) {
+    this.selectedArr = event.value;
+  }
   @ViewChild('htmlData') htmlData!: ElementRef;
   displayedColumns: string[] = [
     'salesDoc',
@@ -26,15 +41,23 @@ export class SalesOrderComponent implements OnInit {
   salesArr: any;
   dialog_Arr: any;
   @Input() loader: boolean;
+  selectedArr: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   ngOnInit() {
     this.getInquiryList();
+    this.selectedArr = this.toppingList;
   }
+  form: FormGroup = new FormGroup({});
   constructor(
     private authenticationService: CustomerService,
-    private dialog: MatDialog
-  ) {}
+    private dialog: MatDialog,
+    private fb: FormBuilder
+  ) {
+    this.form = this.fb.group({
+      toppingList: [this.toppingList, [Validators.required]],
+    });
+  }
   public openPDF(): void {
     let DATA: any = document.getElementById('htmlData');
     html2canvas(DATA, { scale: 3 }).then((canvas) => {

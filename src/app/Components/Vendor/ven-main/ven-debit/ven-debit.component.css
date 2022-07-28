@@ -1,0 +1,10 @@
+.no-data-text {
+  font-size: 2em;
+  font-weight: 600;
+  /* position: absolute;
+  top:50%; */
+  text-transform: uppercase;
+  background: linear-gradient(to bottom right, #1d4a88, #4deae2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

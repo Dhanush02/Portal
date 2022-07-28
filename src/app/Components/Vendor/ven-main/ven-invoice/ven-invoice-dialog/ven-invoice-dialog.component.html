@@ -73,4 +73,14 @@
       }}</span>
     </div>
   </div>
+  <div class="w-100">
+    <button
+      class="btn-hover btn-auto color-11 mt-1 p-2 float-right"
+      (click)="
+        openInvPDF(dialog_Arr.INV_DOC_NO['_text'], dialog_Arr.FISC_YEAR['_text'])
+      "
+    > 
+      Download {{ dialog_Arr.INV_DOC_NO["_text"] }} Invoice
+    </button>
+  </div>
 </div>

@@ -15,7 +15,7 @@ export class CustomerService {
     });
   }
   invoicePdf(data: any) {
-    return this.http.post('http://localhost:4000/cust-invoice-pdf', {
+    return this.http.post('http://localhost:4000/api/v1/customer/cust-invoice-pdf', {
       uname: parseInt(localStorage.getItem('userid')),
       inv: data,
     });
