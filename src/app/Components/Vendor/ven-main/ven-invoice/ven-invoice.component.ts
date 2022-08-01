@@ -24,6 +24,7 @@ export class VenInvoiceComponent implements OnInit {
     'PSTNG_DATE',
     'COMP_CODE',
     'CURRENCY',
+    
   ];
 
   change(event: any) {

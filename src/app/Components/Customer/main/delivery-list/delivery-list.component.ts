@@ -17,12 +17,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class DeliveryListComponent implements OnInit {
   toppings: any = new FormControl('');
   toppingList: string[] = [
-    'VBELN',
-    'WADAT',
-    'WADAT_IST',
-    'WAERK',
-    'WAUHR',
-    'ERNAM',
+    'Delivery',
+    'Date',
+    'ActualDate',
+    'Currency',
+    'GoodsIssueTime',
+    'CreatedBy',
   ];
 
   change(event: any) {
@@ -32,12 +32,12 @@ export class DeliveryListComponent implements OnInit {
   selectedArr: any;
   @ViewChild('htmlData') htmlData!: ElementRef;
   displayedColumns: string[] = [
-    'VBELN',
-    'WADAT',
-    'WADAT_IST',
-    'WAERK',
-    'WAUHR',
-    'ERNAM',
+    'Delivery',
+    'Date',
+    'ActualDate',
+    'Currency',
+    'GoodsIssueTime',
+    'CreatedBy',
   ];
   dataSource!: MatTableDataSource<UserData>;
   deliveryArr: any;
@@ -114,14 +114,15 @@ export class DeliveryListComponent implements OnInit {
 
       const dataArr = this.deliveryArr.map((item: any) => {
         return {
-          VBELN: item.VBELN['_text'],
-          WADAT: item.WADAT['_text'],
-          WADAT_IST: item.WADAT_IST['_text'],
-          WAERK: item.WAERK['_text'],
-          WAUHR: item.WAUHR['_text'],
-          ERNAM: item.ERNAM['_text'],
+          Delivery: item.VBELN['_text'],
+          Date: item.WADAT['_text'],
+          ActualDate: item.WADAT_IST['_text'],
+          Currency: item.WAERK['_text'],
+          GoodsIssueTime: item.WAUHR['_text'],
+          CreatedBy: item.ERNAM['_text'],
         };
       });
+      var dataAr = dataArr.shift();
       this.dataSource = new MatTableDataSource(dataArr);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -132,10 +133,10 @@ export class DeliveryListComponent implements OnInit {
 }
 
 export interface UserData {
-  VBELN: any;
-  WADAT: any;
-  WADAT_IST: any;
-  WAERK: any;
-  WAUHR: any;
-  ERNAM: any;
+  Delivery: any;
+  Date: any;
+  ActualDate: any;
+  Currency: any;
+  GoodsIssueTime: any;
+  CreatedBy: any;
 }

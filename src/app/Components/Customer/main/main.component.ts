@@ -25,7 +25,7 @@ export class MainComponent implements OnInit {
       this.router.navigate(['/customer/login']);
       this.authenticationService.error('Login to Enter into Customer Portal');
     } else {
-      this.loader = true;
+      // this.loader = true;
       this.authenticationService.info('Setting up profile');
       this.authenticationService.loginDetail().subscribe((data: any) => {
         if (Object.keys(data).length > 0) {
@@ -35,8 +35,9 @@ export class MainComponent implements OnInit {
           this.avatar = this.profileArr['CUST_ADDRESS']['MATCHCODE2'][
             '_text'
           ].substring(0, 2);
-          this.loader = false;
+          // this.loader = false;
           this.authenticationService.onCloseSnack();
+          this.authenticationService.success('Welcome Again');
         }
       });
     }
