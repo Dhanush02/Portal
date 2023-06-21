@@ -12,10 +12,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-inquiry-list',
   templateUrl: './inquiry-list.component.html',
-  styleUrls: ['./inquiry-list.component.css']
+  styleUrls: ['./inquiry-list.component.css'],
 })
 export class InquiryListComponent implements OnInit {
-
   toppings: any = new FormControl('');
   toppingList: string[] = [
     'docNumber',
@@ -25,7 +24,7 @@ export class InquiryListComponent implements OnInit {
     'category',
     'sdCurrency',
   ];
-
+  currentPage: any;
   change(event: any) {
     this.selectedArr = event.value;
   }
@@ -48,6 +47,10 @@ export class InquiryListComponent implements OnInit {
   ngOnInit() {
     this.getInquiryList();
     this.selectedArr = this.toppingList;
+    this.currentPage = 1;
+  }
+  onPaginateChange(event: any) {
+    this.currentPage = event.pageIndex + 1;
   }
   form: FormGroup = new FormGroup({});
   constructor(
@@ -88,7 +91,7 @@ export class InquiryListComponent implements OnInit {
     }
   }
   onRow(data: any) {
-    console.log(data)
+    console.log(data);
     this.inquiryArr.map((item: any) => {
       if (parseInt(item.VBELN['_text']) === parseInt(data)) {
         this.newArr = item;
@@ -109,6 +112,8 @@ export class InquiryListComponent implements OnInit {
           'HEADER_TABLE'
         ]['item'];
 
+      console.log('Inquiry Data', this.inquiryArr);
+
       const dataArr = this.inquiryArr.map((item: any) => {
         return {
           docNumber: item.VBELN['_text'],
@@ -128,7 +133,6 @@ export class InquiryListComponent implements OnInit {
       this.authenticationService.info('Inquiry List');
     });
   };
-
 }
 
 export interface UserData {

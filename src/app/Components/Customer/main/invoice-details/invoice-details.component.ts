@@ -18,25 +18,26 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class InvoiceDetailsComponent implements OnInit {
   toppings: any = new FormControl('');
   toppingList: string[] = [
-    'KIDNO',
+    'DOC_NO',
     'LOGSYS',
-    'ERDAT',
-    'ERNAM',
-    'WAERK',
-    'VBTYP',
+    'DATE',
+    'NAME',
+    'CURRENCY',
+    'TYPE',
   ];
+  currentPage: any;
 
   change(event: any) {
     this.selectedArr = event.value;
   }
   @ViewChild('htmlData') htmlData!: ElementRef;
   displayedColumns: string[] = [
-    'KIDNO',
+    'DOC_NO',
     'LOGSYS',
-    'ERDAT',
-    'ERNAM',
-    'WAERK',
-    'VBTYP',
+    'DATE',
+    'NAME',
+    'CURRENCY',
+    'TYPE',
   ];
   dataSource!: MatTableDataSource<UserData>;
   invoiceArr: any;
@@ -48,6 +49,10 @@ export class InvoiceDetailsComponent implements OnInit {
   ngOnInit() {
     this.getInquiryList();
     this.selectedArr = this.toppingList;
+    this.currentPage = 1;
+  }
+  onPaginateChange(event: any) {
+    this.currentPage = (event.pageIndex + 1);
   }
   form: FormGroup = new FormGroup({});
   constructor(
@@ -116,12 +121,12 @@ export class InvoiceDetailsComponent implements OnInit {
 
       const dataArr = this.invoiceArr.map((item: any) => {
         return {
-          KIDNO: item.KIDNO['_text'],
+          DOC_NO: item.KIDNO['_text'],
           LOGSYS: item.LOGSYS['_text'],
-          ERDAT: item.ERDAT['_text'],
-          ERNAM: item.ERNAM['_text'],
-          WAERK: item.WAERK['_text'],
-          VBTYP: item.VBTYP['_text'],
+          DATE: item.ERDAT['_text'],
+          NAME: item.ERNAM['_text'],
+          CURRENCY: item.WAERK['_text'],
+          TYPE: item.VBTYP['_text'],
         };
       });
       this.dataSource = new MatTableDataSource(dataArr);
@@ -134,10 +139,10 @@ export class InvoiceDetailsComponent implements OnInit {
 }
 
 export interface UserData {
-  KIDNO: any;
+  DOC_NO: any;
   LOGSYS: any;
-  ERDAT: any;
-  ERNAM: any;
-  WAERK: any;
-  VBTYP: any;
+  DATE: any;
+  NAME: any;
+  CURRENCY: any;
+  TYPE: any;
 }

@@ -25,6 +25,7 @@ export class PaymentAgingComponent implements OnInit {
     'BLINE_DATE',
     'ENTRY_DATE',
   ];
+  currentPage: number;
 
   change(event: any) {
     this.selectedArr = event.value;
@@ -48,6 +49,10 @@ export class PaymentAgingComponent implements OnInit {
   ngOnInit() {
     this.getInquiryList();
     this.selectedArr = this.toppingList;
+    this.currentPage = 1;
+  }
+  onPaginateChange(event: any) {
+    this.currentPage = (event.pageIndex + 1);
   }
   form: FormGroup = new FormGroup({});
   constructor(

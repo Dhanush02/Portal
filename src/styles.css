@@ -37,6 +37,17 @@ button:focus {
   outline: none;
   border: none;
 }
+.mat-select-value-text{
+  text-transform: uppercase;
+}
+/* .mat-paginator-range-label {
+  display: none;
+} */
+.pageNumber{
+  font-size: 12px;
+  margin: 0 4px;
+  color: rgba(0, 0, 0, 0.54);
+}
 .btn-override {
   width: 300px !important;
 }
@@ -422,9 +433,9 @@ form.sign-in-form {
   position: absolute;
   height: 2000px;
   width: 2000px;
-  top: -10%;
+  top: 0%;
   right: 48%;
-  transform: translateY(-50%);
+  transform: translateX(-50%);
   background: linear-gradient(to right, #ffedbc, #ed4264);
   transition: 1.8s ease-in-out;
   border-radius: 50%;

@@ -24,6 +24,7 @@ export class GoodsReceiptComponent implements OnInit {
     'DOC_DATE',
     'USERNAME',
   ];
+  currentPage: number;
 
   change(event: any) {
     this.selectedArr = event.value;
@@ -47,6 +48,10 @@ export class GoodsReceiptComponent implements OnInit {
   ngOnInit() {
     this.getInquiryList();
     this.selectedArr = this.toppingList;
+    this.currentPage = 1;
+  }
+  onPaginateChange(event: any) {
+    this.currentPage = (event.pageIndex + 1);
   }
   form: FormGroup = new FormGroup({});
   constructor(
@@ -122,6 +127,8 @@ export class GoodsReceiptComponent implements OnInit {
           USERNAME: item.USERNAME['_text'],
         };
       });
+      var dataAr = dataArr.shift();
+      console.log(dataAr);
       // Assign the data to the data source for the table to render
       this.dataSource = new MatTableDataSource(dataArr);
 

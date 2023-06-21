@@ -17,25 +17,26 @@ import { QuotationDialogComponent } from './quotation-dialog/quotation-dialog.co
 export class QuotationReqComponent implements OnInit {
   toppings: any = new FormControl('');
   toppingList: string[] = [
-    'EBELN',
-    'LIFNR',
-    'WKURS',
-    'WAERS',
-    'AEDAT',
-    'ERNAM',
+    'DOC_NO',
+    'ACC_NO',
+    'EXH_RATE',
+    'CURRENCY',
+    'DATE',
+    'NAME',
   ];
+  currentPage: number;
 
   change(event: any) {
     this.selectedArr = event.value;
   }
   @ViewChild('htmlData') htmlData!: ElementRef;
   displayedColumns: string[] = [
-    'EBELN',
-    'LIFNR',
-    'WKURS',
-    'WAERS',
-    'AEDAT',
-    'ERNAM',
+    'DOC_NO',
+    'ACC_NO',
+    'EXH_RATE',
+    'CURRENCY',
+    'DATE',
+    'NAME',
   ];
   dataSource!: MatTableDataSource<UserData>;
   inquiryArr: any;
@@ -47,6 +48,10 @@ export class QuotationReqComponent implements OnInit {
   ngOnInit() {
     this.getInquiryList();
     this.selectedArr = this.toppingList;
+    this.currentPage = 1;
+  }
+  onPaginateChange(event: any) {
+    this.currentPage = (event.pageIndex + 1);
   }
   form: FormGroup = new FormGroup({});
   constructor(
@@ -116,12 +121,12 @@ export class QuotationReqComponent implements OnInit {
       const dataArr = this.inquiryArr.map((item: any) => {
         console.log(item)
         return {
-          LIFNR: item.LIFNR['_text'],
-          WKURS: item.WKURS['_text'],
-          WAERS: item.WAERS['_text'],
-          EBELN: item.EBELN['_text'],
-          AEDAT: item.AEDAT['_text'],
-          ERNAM: item.ERNAM['_text'],
+          ACC_NO: item.LIFNR['_text'],
+          EXH_RATE: item.WKURS['_text'],
+          CURRENCY: item.WAERS['_text'],
+          DOC_NO: item.EBELN['_text'],
+          DATE: item.AEDAT['_text'],
+          NAME: item.ERNAM['_text'],
         };
       });
       // Assign the data to the data source for the table to render
@@ -136,10 +141,10 @@ export class QuotationReqComponent implements OnInit {
 }
 
 export interface UserData {
-  LIFNR: any;
-  WKURS: any;
-  WAERS: any;
-  EBELN: any;
-  AEDAT: any;
-  ERNAM: any;
+  ACC_NO: any;
+  EXH_RATE: any;
+  CURRENCY: any;
+  DOC_NO: any;
+  DATE: any;
+  NAME: any;
 }

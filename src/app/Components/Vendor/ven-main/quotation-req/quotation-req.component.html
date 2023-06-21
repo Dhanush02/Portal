@@ -38,9 +38,9 @@
     id="htmlData"
     class="mat-tab table-striped"
   >
-    <ng-container matColumnDef="LIFNR">
+    <ng-container matColumnDef="ACC_NO">
       <th
-        title="LIFNR"
+        title="ACC_NO"
         mat-header-cell
         *matHeaderCellDef
         mat-sort-header
@@ -58,52 +58,52 @@
         data-target="#exampleModalCenter"
         
       >
-        {{ row.LIFNR }}
+        {{ row.ACC_NO }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="WKURS">
+    <ng-container matColumnDef="EXH_RATE">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
         Exchange Rate
       </th>
-      <td mat-cell *matCellDef="let row" class="p-3" data-label="WKURS">
-        {{ row.WKURS }}
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="EXH_RATE">
+        {{ row.EXH_RATE }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="WAERS">
+    <ng-container matColumnDef="CURRENCY">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
         CURRENCY
       </th>
-      <td mat-cell *matCellDef="let row" class="p-3" data-label="WAERS">
-        {{ row.WAERS }}
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="CURRENCY">
+        {{ row.CURRENCY }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="EBELN">
+    <ng-container matColumnDef="DOC_NO">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
         Purchasing Document
       </th>
-      <td mat-cell *matCellDef="let row" class="p-3" data-label="EBELN" (click)="onRow(row.EBELN)">
-        {{ row.EBELN }}
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="DOC_NO" (click)="onRow(row.DOC_NO)">
+        {{ row.DOC_NO }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="AEDAT">
+    <ng-container matColumnDef="DATE">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
         CRETAED DATE
       </th>
-      <td mat-cell *matCellDef="let row" class="p-3" data-label="AEDAT">
-        {{ row.AEDAT }}
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="DATE">
+        {{ row.DATE }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="ERNAM">
+    <ng-container matColumnDef="NAME">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="table-row">
         CREATED BY
       </th>
-      <td mat-cell *matCellDef="let row" class="p-3" data-label="ERNAM">
-        {{ row.ERNAM }}
+      <td mat-cell *matCellDef="let row" class="p-3" data-label="NAME">
+        {{ row.NAME }}
       </td>
     </ng-container>
 
@@ -117,8 +117,12 @@
     </tr>
   </table>
 
-  <mat-paginator
-    [pageSizeOptions]="[5,10]"
-    aria-label="Select page of users"
-  ></mat-paginator>
+  <div class="d-flex align-items-center justify-content-center" style="position: relative;top:15px">
+    <span class="pageNumber">Current page : {{ currentPage }}</span>
+    <mat-paginator
+      [pageSizeOptions]="[5,10]"
+      (page)="onPaginateChange($event)"
+      aria-label="Select page of users"
+    ></mat-paginator>
+  </div>
 </div>

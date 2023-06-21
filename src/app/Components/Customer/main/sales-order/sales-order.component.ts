@@ -24,6 +24,7 @@ export class SalesOrderComponent implements OnInit {
     'category',
     'date',
   ];
+  currentPage: any;
 
   change(event: any) {
     this.selectedArr = event.value;
@@ -47,6 +48,10 @@ export class SalesOrderComponent implements OnInit {
   ngOnInit() {
     this.getInquiryList();
     this.selectedArr = this.toppingList;
+    this.currentPage = 1;
+  }
+  onPaginateChange(event: any) {
+    this.currentPage = event.pageIndex + 1;
   }
   form: FormGroup = new FormGroup({});
   constructor(
